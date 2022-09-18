@@ -1,3 +1,27 @@
-<html>
-
+<html>>
+<body>
+    <p id="test">this is the header</p>
+    <p id="change">this is the part i want to change</p>
+    
+    <form action="test_server.php"
+        <p>Enter the number to test output: <input type="text" name="myname" />
+        <button type = "button" onclick = "doAJAXstuff(this.form)">
+            Paint this part of the web page
+        </button>
+        </p>
+    </form>
+    
+    <script type = "text/javascript">
+        funciton doAJAXstuff(theform) {
+            request = new XMLHttpRequest();
+            request.open("GET","test_server.php?mydata="+theform.myname.value, true);
+            
+            request.onreadystatechange = function () {
+                if (request.readyState == 4)
+                    my_callback();
+            }
+            request.send();
+        }
+    </script>
+</body>
 </html>
